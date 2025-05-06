@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -24,31 +25,36 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
+    const serviceID = 'service_nzfo6ub';
+    const myTemplateID = 'template_axu75m9';
+    const userTemplateID = 'template_cyqlz0p';
+    const publicKey = 'GSduuUYPRIFWVBw87';
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
+  
+    const userTemplateParams = {
+      from_name: formData.name,
+      subject: formData.subject,
+      message: formData.message,
+      email: formData.email,
+    };
+  
     try {
-      // Use EmailJS to send the email
-      const serviceID = 'default_service'; // Replace with your EmailJS service ID
-      const templateID = 'template_contact'; // Replace with your EmailJS template ID
-      const userID = 'user_your_emailjs_userid'; // Replace with your EmailJS user ID
-      
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_email: 'miguelconde121004@gmail.com'
-      };
-      
-      // Send the email using the mailto: protocol as a fallback
-      window.location.href = `mailto:miguelconde121004@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-      )}`;
-      
+      await emailjs.send(serviceID, myTemplateID, templateParams, publicKey);
+  
+      await emailjs.send(serviceID, userTemplateID, userTemplateParams, publicKey);
+  
       toast({
-        title: "Message prepared!",
-        description: "Your default email app has been opened with your message. Please send the email to complete the process.",
+        title: "Message sent!",
+        description: "Thank you for reaching out. A confirmation email has been sent to your inbox.",
       });
-      
+  
       setFormData({
         name: '',
         email: '',
@@ -56,12 +62,13 @@ const Contact = () => {
         message: ''
       });
     } catch (error) {
+      console.error("EmailJS error:", error);
       toast({
         title: "Error",
         description: "There was an error sending your message. Please try again later.",
         variant: "destructive"
       });
-      console.error("Error sending message:", error);
+      console.error("EmailJS error:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -98,7 +105,7 @@ const Contact = () => {
                       <p className="font-medium">+55 (12) 98257-3856</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="bg-portfolio-light-purple dark:bg-portfolio-dark-purple/20 p-3 rounded-full">
                       <Mail className="h-5 w-5 text-portfolio-purple" />
@@ -108,7 +115,7 @@ const Contact = () => {
                       <p className="font-medium">miguelconde121004@gmail.com</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="bg-portfolio-light-purple dark:bg-portfolio-dark-purple/20 p-3 rounded-full">
                       <MapPin className="h-5 w-5 text-portfolio-purple" />
@@ -118,26 +125,26 @@ const Contact = () => {
                       <p className="font-medium">São José dos Campos, SP, Brazil</p>
                     </div>
                   </div>
-                  
+
                   <div className="pt-4 flex justify-center space-x-6">
-                    <a 
-                      href="https://github.com/miguelcondesantos" 
-                      target="_blank" 
+                    <a
+                      href="https://github.com/miguelcondesantos"
+                      target="_blank"
                       className="text-portfolio-purple hover:text-portfolio-dark-purple transition-colors duration-200"
                       aria-label="GitHub"
                     >
                       <Github size={24} />
                     </a>
-                    <a 
-                      href="https://www.linkedin.com/in/miguel-conde-santos-a67313271/" 
-                      target="_blank" 
+                    <a
+                      href="https://www.linkedin.com/in/miguel-conde-santos-a67313271/"
+                      target="_blank"
                       className="text-portfolio-purple hover:text-portfolio-dark-purple transition-colors duration-200"
                       aria-label="LinkedIn"
                     >
                       <Linkedin size={24} />
                     </a>
-                    <a 
-                      href="mailto:miguelconde121004@gmail.com" 
+                    <a
+                      href="mailto:miguelconde121004@gmail.com"
                       className="text-portfolio-purple hover:text-portfolio-dark-purple transition-colors duration-200"
                       aria-label="Email"
                     >
@@ -182,7 +189,7 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label htmlFor="subject" className="text-sm font-medium">
                       Subject
@@ -196,7 +203,7 @@ const Contact = () => {
                       required
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium">
                       Message
@@ -211,10 +218,10 @@ const Contact = () => {
                       required
                     />
                   </div>
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full" 
+
+                  <Button
+                    type="submit"
+                    className="w-full"
                     size="lg"
                     disabled={isSubmitting}
                   >

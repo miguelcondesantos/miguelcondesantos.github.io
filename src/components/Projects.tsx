@@ -74,8 +74,8 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {filteredProjects.map((project, index) => (
-            <Card 
-              key={project.id} 
+            <Card
+              key={project.id}
               className="project-card opacity-0 animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
@@ -106,12 +106,14 @@ const Projects = () => {
                     Code
                   </a>
                 </Button>
+                {/* 
                 <Button size="sm" asChild>
                   <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                     <Link2 className="mr-2 h-4 w-4" />
                     Demo
                   </a>
-                </Button>
+                </Button> 
+                */}
               </CardFooter>
             </Card>
           ))}

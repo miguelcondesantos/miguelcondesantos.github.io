@@ -38,8 +38,7 @@ const Navbar = () => {
   const handleResumeClick = () => {
     // Create a link to download the resume
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Update with actual resume path when available
-    link.download = 'Miguel_Conde_Santos_Resume.pdf';
+    link.href = 'https://drive.google.com/uc?export=download&id=1bIBGhZOOxelg1V4pi61HgwiZrnpxPqA9'; // Update with actual resume path when available
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
