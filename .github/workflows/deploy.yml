@@ -16,4 +16,6 @@ jobs:
             - run: npm ci
             - run: npm run build
             - run: npx gh-pages -d dist
+              env:
+                TOKEN: ${{ secrets.TOKEN }}
 
