@@ -11,7 +11,6 @@ const projects = [
     title: "Asset Management System",
     description: "System to optimize business management with an intuitive interface and robust features that simplify asset administration.",
     image: "/images/ativos.avif",
-    demoUrl: "#",
     repoUrl: "https://github.com/BananaaScript/SGA",
     tags: ["Java", "TypeScript", "React", "Spring", "MySQL"]
   },
@@ -20,7 +19,6 @@ const projects = [
     title: "Meteorological Data Collector",
     description: "Environmental monitoring system with low-cost IoT weather stations that collect climate data and display it in dashboards.",
     image: "/images/meteorologico.png",
-    demoUrl: "#",
     repoUrl: "https://github.com/BananaScripts/Meteorological-Data-Collector",
     tags: ["TypeScript", "React", "Node.js", "MySQL", "Docker", "Google Cloud", "Supabase"]
   },
@@ -29,9 +27,16 @@ const projects = [
     title: "AI Agents Platform",
     description: "A platform for creating and managing personalized Artificial Intelligence agents, trained to answer questions about the company's products, systems, and internal processes. The tool features permission control and a mobile app with an intelligent chat, where users interact only with the agents they have access to, with data stored in the cloud.",
     image: "/images/agentia.png",
-    demoUrl: "#",
     repoUrl: "https://github.com/BananaScripts/API_5-Semester",
     tags: ["TypeScript", "React", "Node.js", "MongoDB", "Docker", "AI", "Mobile"]
+  },
+  {
+    id: 3,
+    title: "Opin8",
+    description: "A collaborative space site for participatory democracy, where anyone can create petitions, proposals and bills to help improve society. Free from ads and algorithmic manipulation, it allows you to share ideas, raise support and create real impact - with AI's help to shape your proposals professionally.",
+    image: "images/opin8.png",
+    siteURL: "https://opin8.com/",
+    tags: ["TypeScript", "React", "Node.js", "PostgreSQL", "AI"]
   }
 ];
 
@@ -106,14 +111,14 @@ const Projects = () => {
                     Code
                   </a>
                 </Button>
-                {/* 
-                <Button size="sm" asChild>
-                  <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                    <Link2 className="mr-2 h-4 w-4" />
-                    Demo
-                  </a>
-                </Button> 
-                */}
+                {project.siteURL && (
+                  <Button size="sm" asChild>
+                    <a href={project.siteURL} target="_blank" rel="noopener noreferrer">
+                      <Link2 className="mr-2 h-4 w-4" />
+                      Site
+                    </a>
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           ))}
@@ -122,7 +127,7 @@ const Projects = () => {
         <div className="text-center mt-12">
           <Button variant="outline" size="lg" className="rounded-md" asChild>
             <a href="https://github.com/miguelcondesantos" target="_blank" rel="noopener noreferrer">
-              View All Projects
+              View More Projects
             </a>
           </Button>
         </div>
