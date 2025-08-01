@@ -10,7 +10,7 @@ const projects = [
     id: 1,
     title: "Asset Management System",
     description: "System to optimize business management with an intuitive interface and robust features that simplify asset administration.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    image: "/images/ativos.avif",
     demoUrl: "#",
     repoUrl: "https://github.com/BananaaScript/SGA",
     tags: ["Java", "TypeScript", "React", "Spring", "MySQL"]
@@ -19,7 +19,7 @@ const projects = [
     id: 2,
     title: "Meteorological Data Collector",
     description: "Environmental monitoring system with low-cost IoT weather stations that collect climate data and display it in dashboards.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    image: "/images/meteorologico.png",
     demoUrl: "#",
     repoUrl: "https://github.com/BananaScripts/Meteorological-Data-Collector",
     tags: ["TypeScript", "React", "Node.js", "MySQL", "Docker", "Google Cloud", "Supabase"]
@@ -28,7 +28,7 @@ const projects = [
     id: 3,
     title: "AI Agents Platform",
     description: "A platform for creating and managing personalized Artificial Intelligence agents, trained to answer questions about the company's products, systems, and internal processes. The tool features permission control and a mobile app with an intelligent chat, where users interact only with the agents they have access to, with data stored in the cloud.",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485",
+    image: "/images/agentia.png",
     demoUrl: "#",
     repoUrl: "https://github.com/BananaScripts/API_5-Semester",
     tags: ["TypeScript", "React", "Node.js", "MongoDB", "Docker", "AI", "Mobile"]

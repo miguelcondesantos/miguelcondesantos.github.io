@@ -1,11 +1,10 @@
-
 import React from 'react';
-import { 
+/* import { 
   Code, 
   Database, 
   Server, 
-  FileCode,  // Replacement for Html
-  Palette,   // Replacement for Css
+  FileCode,
+  Palette,
   SquareCode,
   FileJson,
   FileBadge,
@@ -13,39 +12,45 @@ import {
   Cloud,
   FlaskConical,
   Binary 
-} from 'lucide-react';
+} from 'lucide-react';*/
+
+import { 
+  SiHtml5, SiCss3, SiJavascript, SiTypescript, SiReact, SiPython, SiNodedotjs, SiSpring, SiFlask, SiMysql, SiMongodb, SiRedis, SiDocker, SiGooglecloud 
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { SiDotnet } from "react-icons/si";
 
 // Tech stack icons organized by category
 const techCategories = [
   {
     name: "Frontend",
     tech: [
-      { name: "HTML", color: "#E34F26", icon: <FileCode size={32} /> },
-      { name: "CSS", color: "#1572B6", icon: <Palette size={32} /> },
-      { name: "JavaScript", color: "#F7DF1E", icon: <FileJson size={32} /> },
-      { name: "TypeScript", color: "#3178C6", icon: <FileBadge size={32} /> },
-      { name: "React", color: "#61DAFB", icon: <Boxes size={32} /> },
+      { name: "HTML", color: "#E34F26", icon: <SiHtml5 size={32} /> },
+      { name: "CSS", color: "#1572B6", icon: <SiCss3 size={32} /> },
+      { name: "JavaScript", color: "#F7DF1E", icon: <SiJavascript size={32} /> },
+      { name: "TypeScript", color: "#3178C6", icon: <SiTypescript size={32} /> },
+      { name: "React", color: "#61DAFB", icon: <SiReact size={32} /> },
     ]
   },
   {
     name: "Backend",
     tech: [
-      { name: "Java", color: "#007396", icon: <Binary size={32} /> },
-      { name: "C#", color: "#68217A", icon: <Code size={32} /> },
-      { name: "Python", color: "#3776AB", icon: <SquareCode size={32} /> },
-      { name: "Node.js", color: "#339933", icon: <Server size={32} /> },
-      { name: "Spring", color: "#6DB33F", icon: <FlaskConical size={32} /> },
-      { name: "Flask", color: "#000000", icon: <FlaskConical size={32} /> },
+      { name: "Java", color: "#007396", icon: <FaJava size={32} /> },
+      { name: "C#", color: "#68217A", icon: <SiDotnet size={32} /> },
+      { name: "Python", color: "#3776AB", icon: <SiPython size={32} /> },
+      { name: "Node.js", color: "#339933", icon: <SiNodedotjs size={32} /> },
+      { name: "Spring", color: "#6DB33F", icon: <SiSpring size={32} /> },
+      { name: "Flask", color: "#000000", icon: <SiFlask size={32} /> },
     ]
   },
   {
     name: "Database & DevOps",
     tech: [
-      { name: "MySQL", color: "#4479A1", icon: <Database size={32} /> },
-      { name: "MongoDB", color: "#47A248", icon: <Database size={32} /> },
-      { name: "Redis", color: "#DC382D", icon: <Database size={32} /> },
-      { name: "Docker", color: "#2496ED", icon: <Boxes size={32} /> },
-      { name: "Google Cloud", color: "#4285F4", icon: <Cloud size={32} /> },
+      { name: "MySQL", color: "#4479A1", icon: <SiMysql size={32} /> },
+      { name: "MongoDB", color: "#47A248", icon: <SiMongodb size={32} /> },
+      { name: "Redis", color: "#DC382D", icon: <SiRedis size={32} /> },
+      { name: "Docker", color: "#2496ED", icon: <SiDocker size={32} /> },
+      { name: "Google Cloud", color: "#4285F4", icon: <SiGooglecloud size={32} /> },
     ]
   }
 ];
