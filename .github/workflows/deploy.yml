@@ -26,6 +26,7 @@ jobs:
 
       - name: Deploy to GitHub Pages (overwrite main)
         run: |
+          shopt -s extglob
           rm -rf !(dist|.git|.github)
           mv dist/* .
           rm -rf dist
